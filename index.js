@@ -17,6 +17,7 @@ const questions = [
         type: "list",
         message: "Choose a shape for your logo:",
         name: "shape_logo",
+        choices: ['Triangle', 'Circle', 'Square'],
     },
     {
         type: "input",
@@ -28,12 +29,18 @@ const questions = [
 function init() {
 inquirer.prompt(questions).then(function (data) {
     
-    if(data.shape_logo === 'triangle') {
+    if(data.shape_logo === 'Triangle') {
         const text = new Triangle (data.text, data.text_color, data.shape_color)
         text.render()
     }
+    console.log(data)
     console.log("Generated logo.svg")
-    fs.writeFile("./logo.svg", data);
+    fs.writeFile("logo.svg", data, (err) => {
+        if (err)
+        console.log(err);
+    else {console.log("File written successfully\n");
+}
+    });
 })
 };
 

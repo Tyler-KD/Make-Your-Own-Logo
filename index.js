@@ -28,14 +28,15 @@ const questions = [
 
 function init() {
 inquirer.prompt(questions).then(function (data) {
-    
+    let svgLogo =""
     if(data.shape_logo === 'Triangle') {
         const text = new Triangle (data.text, data.text_color, data.shape_color)
-        text.render()
+        svgLogo = text.render()
     }
     console.log(data)
+    console.log(svgLogo)
     console.log("Generated logo.svg")
-    fs.writeFile("logo.svg", data, (err) => {
+    fs.writeFile("logo.svg", svgLogo, (err) => {
         if (err)
         console.log(err);
     else {console.log("File written successfully\n");

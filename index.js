@@ -1,7 +1,12 @@
+// To include the File System module, use the require() method
 const fs = require("fs");
+// imports inquirer
+// inquirer provides the user interface and the inquiry session flow
 const inquirer = require("inquirer");
+// Imported shapes module with Triangle, Circle, and Square classes
 const {Triangle, Circle, Square} = require("./lib/shapes")
 
+// Array of questions for user input
 const questions = [
     {
         type: "input",
@@ -26,11 +31,15 @@ const questions = [
     }
 ];
 
+// function for initializing the inquirer prompts which take in user input from questions
 function init() {
 inquirer.prompt(questions).then(function (data) {
+    // empty string to populate with user's choice
     let svgLogo =""
+    // if the shape for logo is 'Triangle,' then an instance for Triangle is populated with user's text, text color, and shape color
     if(data.shape_logo === 'Triangle') {
         const text = new Triangle (data.text, data.text_color, data.shape_color)
+        // svgLogo is rendered with const text data
         svgLogo = text.render()
     }
     if(data.shape_logo === 'Circle') {
@@ -44,7 +53,9 @@ inquirer.prompt(questions).then(function (data) {
     console.log(data)
     console.log(svgLogo)
     console.log("Generated logo.svg")
+    // WriteFile creates a logo.svg to root directory
     fs.writeFile("logo.svg", svgLogo, (err) => {
+        // Callback would be called when the method is executed
         if (err)
         console.log(err);
     else {console.log("File written successfully\n");
@@ -52,5 +63,5 @@ inquirer.prompt(questions).then(function (data) {
     });
 })
 };
-
+// Call to initialize the app
 init();

@@ -24,3 +24,17 @@ const questions = [
         name: "shape_color",
     }
 ];
+
+function init() {
+inquirer.prompt(questions).then(function (data) {
+    
+    if(data.shape_logo === 'triangle') {
+        const text = new Triangle (data.text, data.text_color, data.shape_color)
+        text.render()
+    }
+    console.log("Generated logo.svg")
+    fs.writeFile("./logo.svg", data);
+})
+};
+
+init();

@@ -33,6 +33,14 @@ inquirer.prompt(questions).then(function (data) {
         const text = new Triangle (data.text, data.text_color, data.shape_color)
         svgLogo = text.render()
     }
+    if(data.shape_logo === 'Circle') {
+        const text = new Circle (data.text, data.text_color, data.shape_color)
+        svgLogo = text.render()
+    }
+    if(data.shape_logo === 'Square') {
+        const text = new Square (data.text, data.text_color, data.shape_color)
+        svgLogo = text.render()
+    }
     console.log(data)
     console.log(svgLogo)
     console.log("Generated logo.svg")

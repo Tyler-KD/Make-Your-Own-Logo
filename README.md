@@ -20,7 +20,7 @@ Make Your Own Logo generates a simple logo by taking in user input to generate a
 
 ## Installation
 
-Within the root directory, install dependencies with the command "npm i" in the terminal.  Then, install inquirer with the command "npm inquirer@8.2.4" in the terminal.  Inquirer will allow the inquirer prompt interface for user input.  Finally, install jest with the command "npm i jest" within the terminal.  Jest allows the unit run tests for each shape.
+Within the root directory, install dependencies with the command "npm i" in the terminal.  Then, install inquirer with the command "npm i inquirer@8.2.4" in the terminal.  Inquirer will allow the inquirer prompt interface for user input.  Finally, install jest with the command "npm i jest" within the terminal.  Jest allows the unit run tests for each shape.
 
 ## Usage
 
